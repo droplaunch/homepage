@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Junior Programming | ComputeX</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link
+    rel="icon"
+    href="logo new.png"
+    type="image/png"
+  />
+  <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #121212;
+      color: #fff;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #00c8ff;
+    }
+
+    /* Navbar */
+    nav {
+      background-color: rgba(18, 18, 18, 0.95);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      font-weight: 600;
+      font-size: 1.5rem;
+      letter-spacing: 2px;
+      color: #00c8ff;
+    }
+
+    .navbar-brand img {
+      height: 40px;
+      margin-right: 12px;
+      filter: drop-shadow(0 0 5px #00c8ff);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      font-weight: 500;
+      font-size: 1rem;
+      padding: 0.5rem 0;
+      position: relative;
+    }
+
+    /* underline animation on hover */
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #00c8ff;
+      transition: width 0.3s ease;
+      border-radius: 2px;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      background-color: #fff;
+      color: #121212;
+      text-align: center;
+      padding: 100px 20px 80px 20px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      border-radius: 0 0 40px 40px;
+      box-shadow: 0 6px 18px rgba(0, 200, 255, 0.2);
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      opacity: 0.8;
+      max-width: 600px;
+      margin: 0 auto;
+      font-weight: 400;
+    }
+
+    /* Cards Container */
+    .work-box {
+      max-width: 1100px;
+      margin: 60px auto 100px auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2.5rem;
+      padding: 0 20px;
+    }
+
+    /* Each Card */
+    .card {
+      background-color: #1e1e1e;
+      border-radius: 16px;
+      box-shadow: 0 10px 20px rgba(0, 200, 255, 0.2);
+      width: 280px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 15px 35px rgba(0, 200, 255, 0.4);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-bottom-left-radius: 16px;
+      border-bottom-right-radius: 16px;
+    }
+
+    .work-content {
+      font-weight: 600;
+      font-size: 1.3rem;
+      margin: 18px 0 12px 0;
+      color: #00c8ff;
+      text-align: center;
+    }
+
+    .glow {
+      font-weight: 400;
+      font-size: 1rem;
+      color: #00c8ff;
+      text-align: center;
+      padding: 0 12px 24px 12px;
+      text-shadow: 0 0 8px #00c8ff;
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, #00c8ff, #005f99);
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 1.2px;
+      border-top-left-radius: 40px;
+      border-top-right-radius: 40px;
+    }
+
+    .btn-enroll {
+      background-color: #00c8ff;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 40px;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #121212;
+      cursor: pointer;
+      box-shadow: 0 8px 15px rgba(0, 200, 255, 0.4);
+      transition: all 0.3s ease;
+      margin-top: 20px;
+      letter-spacing: 1px;
+    }
+
+    .btn-enroll:hover {
+      background-color: #005f99;
+      color: #fff;
+      box-shadow: 0 12px 25px rgba(0, 95, 153, 0.8);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .work-box {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav {
+        padding: 1rem 1rem;
+      }
+
+      .navbar-brand {
+        font-size: 1.2rem;
+      }
+
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="#" class="navbar-brand">
+      <img src="logo new.png" alt="ComputeX Logo" />
+      ComputeX
+    </a>
+    <div class="nav-links">
+      <a href="https://home-page--computex.repl.co/">Home</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1>Junior Programming</h1>
+    <p>Fun, engaging programming tracks for kids!</p>
+  </section>
+
+  <section class="work-box" aria-label="Programming tracks">
+    <div class="card" tabindex="0">
+      <img src="python.jpg" alt="Python Basics" />
+      <a href="https://www.canva.com/design/DAFzAdFZN_Y/yCeom-kweS6IguyrKzvyxw/view" target="_blank" rel="noopener noreferrer">
+        <div class="work-content">Python Basics</div>
+      </a>
+      <p class="glow">Learn about variables, operators, conditionals, and more!</p>
+    </div>
+
+    <div class="card" tabindex="0">
+      <img src="AI.jpeg" alt="Artificial Intelligence" />
+      <a href="https://www.canva.com/design/DAFzAb4DAzk/n71RpxrCUYFMgz5VfJAFSg/view" target="_blank" rel="noopener noreferrer">
+        <div class="work-content">Artificial Intelligence</div>
+      </a>
+      <p class="glow">Explore the fascinating world of AI and its applications!</p>
+    </div>
+
+    <div class="card" tabindex="0">
+      <img src="scratch-coding.jpg" alt="Scratch Coding" />
+      <a href="https://www.canva.com/design/DAFzATQGILs/EyTkUd4wL5x6aQ7AMyEU1A/view" target="_blank" rel="noopener noreferrer">
+        <div class="work-content">Scratch</div>
+      </a>
+      <p class="glow">Build games and animations with logic, movement, and creativity!</p>
+    </div>
+
+    <div class="card" tabindex="0">
+      <img src="fullstack.jpg" alt="Full Stack Development" />
+      <a href="https://www.canva.com/design/DAFzAmGWpOs/0OXazcL5lN3AURmC-ILh3w/view" target="_blank" rel="noopener noreferrer">
+        <div class="work-content">Full Stack Development</div>
+      </a>
+      <p class="glow">Build dynamic websites with HTML, CSS, JS, and backend tools!</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>ComputeX @ DPSD</p>
+    <form action="https://forms.microsoft.com/r/JsfDB5xJqD">
+      <button type="submit" class="btn-enroll">Enroll Now</button>
+    </form>
+  </footer>
+</body>
+
+</html>
